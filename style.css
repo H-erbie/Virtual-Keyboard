@@ -40,6 +40,7 @@ body{
     margin: 14rem 25%;
     top: 0;
     position: absolute;
+    padding: 0.5rem 1rem;
 }
 .keyboard{
     position: absolute;
@@ -151,4 +152,32 @@ body{
     top: 0;
     left: 0;
     display: none;
+}
+.emojis{
+    display: none;
+    grid-template-columns: repeat(11, 1fr);
+    position: absolute;
+    z-index: 1000;
+    border-radius: 0.5rem;
+    width: max-content;
+    height: max-content;
+    bottom: 6rem;
+    background: rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(4px);
+    padding: 1rem;
+    right: 2rem;
+}
+.emojis > div{
+    width: max-content;
+    font-size: 1.8rem;
+    cursor: pointer;
+    transition: 0.5s ease;
+    border-radius: 50%;
+    padding: 0.2rem;
+}
+.emojis > div:hover{
+    background: rgba(0, 0, 0, 0.9);
+}
+.dis{
+    display: grid;
 }
