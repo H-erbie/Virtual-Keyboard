@@ -1,60 +1,80 @@
-const input = document.getElementById('input'),
-    keyboard = document.getElementById('keyboard'),
-    keys = document.querySelectorAll('.key'),
-    app = document.getElementById('app'),
-    del = document.querySelector('.del'),
-    caps = document.querySelector('.caps'),
-    space = document.querySelector('.space'),
-    emoji = document.querySelector('.emoji'),
-    emoj = document.querySelector('.emojis'),
-    emojis = document.querySelectorAll('.emo'),
-    numSym = document.querySelector('.num-sym');
 
-let chars = [];
+window.addEventListener('load', () => {
+    keyBoard();
+});
 
-
-input.onclick = function(){
-    keyboard.style.height = '25rem';
-    
+keyBoard = () => {
+    let chars = [];
+    const vars = { 
+        input : document.getElementById('input'),
+        keyboard : document.getElementById('keyboard'),
+        keys : document.querySelectorAll('.key'),
+        app : document.getElementById('app'),
+        del : document.querySelector('.del'),
+        caps : document.querySelector('.caps'),
+        space : document.querySelector('.space'),
+        emoji : document.querySelector('.emoji'),
+        emoj : document.querySelector('.emojis'),
+        emojis : document.querySelectorAll('.emo'),
+        numSym : document.querySelector('.num-sym'),
+        goToAlphas : document.querySelector('.alphabets'),
+        goToSymbs : document.querySelector('.symbols')
+    }
+    vars.input.value = '';
+    vars.input.onclick = function(){
+    vars.keyboard.style.height = '25rem';
 }
-app.onclick = function(){
-    keyboard.style.height = '0';
+vars.app.onclick = function(){
+    vars.keyboard.style.height = '0';
 }
 
-keys.forEach(key => {
+vars.keys.forEach(key => {
     key.addEventListener('click', () => {
-        input.value += key.innerText;
+        vars.input.value += key.innerText;
         chars = input.value.split('');
         console.log(chars);
     })
 })
-for(let emoj in emojis){
-    emojis[emoj].onclick = () => {
-        input.value += emojis[emoj].textContent
+for(let emoj in vars.emojis){
+    vars.emojis[emoj].onclick = () => {
+        vars.input.value += `${vars.emojis[emoj].textContent}`
     }
 } 
 
-del.addEventListener('click', () => {
+vars.del.addEventListener('click', () => {
     chars.pop();
-    input.value = chars.join('')
+    vars.input.value = chars.join('')
 })
 
-caps.addEventListener('click', () => {
-    keys.forEach(key => {
+vars.caps.addEventListener('click', () => {
+    vars.keys.forEach(key => {
         key.classList.toggle('upper');
 })
     })
 
-space.addEventListener('click', () => {
+vars.space.addEventListener('click', () => {
     chars.push(' ');
-    input.value = chars.join('');   
+    vars.input.value = chars.join('');   
 })
 
-numSym.addEventListener('click', () => {
+vars.numSym.addEventListener('click', () => {
+    if(vars.numSym.textContent == 'abc'){
+        vars.numSym.textContent = '?123';
+    }
+    else{
+        if(vars.keys[0].className == 'upper'){
+            vars.numSym.textContent = 'ABC';
+        }
+        else{
+            vars.numSym.textContent = 'abc';
+        }
+    }
+    vars.goToAlphas.classList.toggle('alphh');
+    vars.goToSymbs.classList.toggle('flexx');
     
-    numSym.classList.toggle('num-sym::after')
 })
-emoji.addEventListener('click', () => emoj.classList.toggle('dis') )
 
 
+vars.emoji.addEventListener('click', () => vars.emoj.classList.toggle('dis') )
+}
 
