@@ -52,21 +52,23 @@ vars.caps.addEventListener('click', () => {
 })
     })
 
+vars.emoji.addEventListener('click', () => vars.emoj.classList.toggle('dis') );
+
 vars.space.addEventListener('click', () => {
     chars.push(' ');
     vars.input.value = chars.join('');   
 })
 
 vars.numSym.addEventListener('click', () => {
-    if(vars.numSym.textContent == 'abc'){
+    if(vars.numSym.textContent == 'abc' || vars.numSym.textContent == 'ABC'){
         vars.numSym.textContent = '?123';
     }
     else{
-        if(vars.keys[0].className == 'upper'){
-            vars.numSym.textContent = 'ABC';
+        if(vars.keys[0].classList == 'key upper'){
+            vars.numSym.textContent = 'ABC'; 
         }
         else{
-            vars.numSym.textContent = 'abc';
+           vars.numSym.textContent = 'abc';  
         }
     }
     vars.goToAlphas.classList.toggle('alphh');
@@ -75,6 +77,5 @@ vars.numSym.addEventListener('click', () => {
 })
 
 
-vars.emoji.addEventListener('click', () => vars.emoj.classList.toggle('dis') )
-}
 
+}
