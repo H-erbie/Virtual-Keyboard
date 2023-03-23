@@ -17,18 +17,18 @@
 
 body{
     background: var(--app-background);
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     overflow: hidden;
 }
 .app-container{
     width: 100vw;
     height: 100vh;
+    overflow: hidden;
 }
-.inp{
-    max-width: 50rem;
-    min-width: 50rem;
-    height: 4rem;
+#input{
+    width: 70%;
+    height: 6rem;
     font-size: 1.5rem;
     border-radius: 0.5rem;
     outline: none;
@@ -37,175 +37,19 @@ body{
     border-color: transparent;
     color: var(--color-variant);
     cursor: pointer;
-    margin: 14rem 25%;
-    top: 0;
-    position: absolute;
     padding: 0.5rem 1rem;
-}
-.keyboard{
-    position: absolute;
-    z-index: 999;
-    width: 100vw;
-    background: var(--keyboard-background);
-    padding: 0.5rem 3rem;
-    display: flex;
-    flex-direction: column;
-    bottom: -1rem;
     transition: var(--transition);
-    height: 0rem;
-    gap: 1rem;
+}
+#input:hover{
+    box-shadow: 0 0 80px rgba(0, 0, 0, 0.9);
 }
 .input-con{
+    position: absolute;
+    top: 0;
     width: 100vw;
     display: flex;
     justify-content: center;
+    height: 20vh;
     align-items: center;
-}   
-.first-row, .second-row, .third-row, .fourth-row, .fifth-row, .numSym-sndRow, .numSym-thdRow, .numSym-frthRow{
-    display: flex;
-    width: max-content;
-    gap: 2rem;
-    margin: 0 auto;
-    cursor: pointer;
-}
-.first-row > div, .second-row > div, .third-row > div, .fourth-row > div, .fifth-row > div, .numSym-sndRow > div, .numSym-thdRow > div, .numSym-frthRow > div{
-    padding: 0.8rem 1.5rem;
-    background: var(--keyboard-variant);
-    border-radius: 0.5rem;
-    font-size: 1.7rem;
-    color: white;
-    transition: var(--transition);
-
-}
-.first-row > div:hover, .second-row > div:hover, .third-row > div:hover, .fourth-row > div:hover, .fifth-row > div:hover, .numSym-sndRow > div:hover, .numSym-thdRow > div:hover, .numSym-frthRow > div:hover, .num-sym::after{
-    background: rgb(23, 160, 194);
-}
-.space{
-    min-width: 30rem;
 }
 
-.upper{
-    text-transform: uppercase;
-}
-.symbols{
-    display: none;
-    flex-direction: column;
-    gap: 1rem;
-}
-.alphabets{
-    flex-direction: column;
-    gap: 1rem;
-    display: flex;
-}
-.num-sym{
-    position: relative;
-}
-
-.emojis{
-    display: none;
-    grid-template-columns: repeat(11, 1fr);
-    position: absolute;
-    z-index: 1000;
-    border-radius: 0.5rem;
-    width: max-content;
-    height: max-content;
-    bottom: 6rem;
-    background: rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(4px);
-    padding: 1rem;
-    right: 2rem;
-}
-.emojis > div{
-    width: max-content;
-    font-size: 1.8rem;
-    cursor: pointer;
-    transition: 0.5s ease;
-    border-radius: 50%;
-    padding: 0.2rem;
-}
-.emojis > div:hover{
-    background: rgba(0, 0, 0, 0.9);
-}
-.dis{
-    display: grid;
-}
-.flexx{
-    display: flex;
-}
-@media screen and (max-width: 950px) {
-    .inp{
-        min-width: 30rem;
-    }
-    .first-row > div, .second-row > div, .third-row > div, .fourth-row > div, .fifth-row > div, .numSym-sndRow > div, .numSym-thdRow > div, .numSym-frthRow > div{
-        padding: 0.8rem 1.2rem;
-        font-size: 1.5rem;
-    }
-    .keyboard{
-        padding: 0.5rem 1rem;
-    }
-    .first-row, .second-row, .third-row, .fourth-row, .fifth-row, .numSym-sndRow, .numSym-thdRow, .numSym-frthRow{
-        gap: 1.5rem;
-
-    }
-
-}
-.alphh{
-    display: none;
-}
-@media screen and (max-width: 750px) {
-
-    .first-row > div, .second-row > div, .third-row > div, .fourth-row > div, .fifth-row > div{
-        font-size: 1.3rem;
-    }
-
-    .first-row, .second-row, .third-row, .fourth-row, .fifth-row, .numSym-sndRow, .numSym-thdRow, .numSym-frthRow{
-        gap: 1rem;
-
-    }
-  
-
-}
-@media screen and (max-width: 610px) {
-
-    .first-row > div, .second-row > div, .third-row > div, .fourth-row > div, .fifth-row > div, .numSym-sndRow > div, .numSym-thdRow > div, .numSym-frthRow > div{
-        padding: 0.6rem 1rem;
-        font-size: 1.2rem;
-    }
-
-    .first-row, .second-row, .third-row, .fourth-row, .fifth-row, .numSym-sndRow, .numSym-thdRow, .numSym-frthRow{
-        gap: 0.5rem;
-
-    }
-    .keyboard{
-        padding: 0.5rem 0.5rem;
-    }
-      .inp{
-        min-width: 15rem;
-    }
-    .space{
-        min-width: 15rem;
-    }
-
-}
-@media screen and (max-width: 460px) {
-
-    .first-row > div, .second-row > div, .third-row > div, .fourth-row > div, .fifth-row > div, .numSym-sndRow > div, .numSym-thdRow > div, .numSym-frthRow > div{
-        padding: 0.9rem 0.75rem;
-    }
-
-    .space{
-        min-width: 10rem;
-    }
-
-}
-@media screen and (max-width: 400px) {
-
-    .first-row > div, .second-row > div, .third-row > div, .fourth-row > div, .fifth-row > div, .numSym-sndRow > div, .numSym-thdRow > div, .numSym-frthRow > div{
-        padding: 0.3rem 0.6rem;
-        font-size: 1.3rem;
-    }
-    .space{
-        min-width: 10rem;
-    }
-
-}

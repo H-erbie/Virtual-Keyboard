@@ -1,0 +1,86 @@
+.keyboard{
+    position: fixed;
+    z-index: 999;
+    width: 100vw;
+    height: 25rem;
+    background: var(--keyboard-background);
+    padding: 0.5rem 3rem;
+    bottom: -1rem;
+    transition: var(--transition);
+    bottom: -25rem;
+    display: flex;
+    justify-content: center;
+}
+.keys{
+    width: max-content;
+}
+.key{
+    padding: 1rem 1.5rem;
+    margin: 0.5rem;
+    cursor: pointer;
+    font-size: 1.5rem;
+    border: none;
+    border-radius: 0.5rem;
+    background: cornflowerblue;
+    color: var(--app-background);
+    transition: var(--transition);
+}
+.key:hover{
+    background: var(--color);
+}
+.space{
+    width: 40rem;
+}
+.funKeys{
+    padding: 1rem 2rem;
+}
+.upper{
+    text-transform: uppercase;
+}
+.noDisplay {
+    display: none;
+}
+@media screen and (max-width: 800px) {
+    .key{
+        padding: 1rem 1.2rem;
+        margin: 0.3rem;
+    }
+    .space{
+        width: 30rem;
+    }
+    .funKeys{
+        padding: 1rem 1.5rem;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .key{
+        padding: 0.5rem 1rem;
+        margin: 0.2rem;
+        font-size: 1.3rem;
+    }
+    .space{
+        width: 20rem;
+    }
+    .funKeys{
+        padding: 0.7rem 0.8rem;
+    }
+    .keyboard{
+        padding: 0.5rem 0 0;
+    }
+}
+@media screen and (max-width: 470px) {
+    .key{
+        padding: 0.3rem 0.7rem;
+        font-size: 1.2rem;
+    }
+    .space{
+        width: 15rem;
+    }
+    .funKeys{
+        padding: 0.7rem 0.5rem;
+    }
+    .keyboard{
+        height: 17rem;
+    }
+}
