@@ -1,3 +1,13 @@
+window.addEventListener('load', () => {
+    keyboard.screen.value = '' // empty inbox when window loads
+    keyboard.showKB();  //show the keyboard when clicked
+    keyboard.hideKB(); //hide the keyboard when clicked
+    keyboard.layout(); //keyboard layout
+})
+
+
+
+
 const keyboard = {
     KB : document.querySelector('.keyboard'),
     appContainer : document.querySelector('#app'),
@@ -22,10 +32,24 @@ const keyboard = {
         '?123', 'space', 'emj'
     ],
     symbols : [
-            '~', '!', '@', '#', '$', '^', '*', '(', ')', '_',
+            '!', '@', '#', '$', '^', '*', '(', ')', '_',
             '-', '+', '=', '{', '}', '[', ']', "/", '|',
             ':', ';', '"', "'", '<', '>', ',', '.', '?',  
         ],
+    emojis: [
+        '😀','😁','😂','🤣','😃','😄','😅','😆','😉',
+        '😊','😋','😎','😍','😘','🥰','😗','😙','😚',
+        '🙂','🤗','🤩','😗','😙','😚','🙂','🤗','🤩',
+        '🤔','🤨','😐','😑','😶','🙄','😏','😣','😥',
+        '😮','🤐','😯','😪','😫','🥱','😴','😌','😛',
+        '😜','🤤','😒','😓','😔','😕','🙃','🤑','😲',
+        '🙁','😖','😞','😟','😤','😢','😭','😦','😧',
+        '😨','😩','🤯','😬','😰','😱','🥵','🥶','😳',
+        '🤪','😵','🥴','😠','😡','🤬','😷','🤒','🤕',
+        '🤮','🤧','😇','🥳','🥺','🤠','🤡','🤥','🤫',
+        '🤭','🧐','🤓','😈','👿','👹','👺','💀', '👻',
+        '👽','👾','🤖', '💩','😺'
+    ],
     layout : function(){
         this.keys;
     
@@ -61,6 +85,7 @@ const keyboard = {
 
     });
     },
+    //functional keys
     keysFunctionality : function(button, chars, key){
         let entries;        
         let backupKeys = [
@@ -132,6 +157,26 @@ const keyboard = {
                 } 
                 }
                 break;
+            case 'emj':
+                let emojiElementCon = document.querySelector('.emoji-con');
+               emojiElementCon.classList.toggle('yesDisplay');
+               if (emojiElementCon.classList == 'emoji-con yesDisplay'){
+                for(let emoji in this.emojis){
+                    let emojiElement = document.createElement('p');
+                    
+                    emojiElement.className = 'emoji';
+                    emojiElement.textContent = this.emojis[emoji];
+                    emojiElementCon.appendChild(emojiElement);
+                    
+                    emojiElement.addEventListener('click', () => {
+                        this.screen.value += emojiElement.textContent;
+                    });
+                };
+            }
+            else{
+                emojiElementCon.textContent = '';
+            };
+                break;
             default:
                 break;
         }
@@ -139,9 +184,3 @@ const keyboard = {
     
 }
 
-window.addEventListener('load', () => {
-    keyboard.screen.value = ''
-    keyboard.showKB();
-    keyboard.hideKB();
-    keyboard.layout();
-})

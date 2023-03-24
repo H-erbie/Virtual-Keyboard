@@ -40,6 +40,33 @@
 .noDisplay {
     display: none;
 }
+.yesDisplay{
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 0.5rem;
+    width: max-content;
+    position: absolute;
+    bottom: 7rem;
+    backdrop-filter: blur(4px);
+    background: rgba(0,0,0,0.3);
+    height: 25vh;
+    overflow-y: scroll;
+    scrollbar-width: thin;
+    right: 2rem;
+}
+.emoji{
+    width: max-content;
+    font-size: 1.5rem;
+    padding: 0.1rem;
+    cursor: pointer;
+    transition: var(--transition);
+    border-radius: 50%;
+}
+.emoji:hover{
+    background: rgba(212, 210, 210, 0.295);
+    
+}
+
 @media screen and (max-width: 800px) {
     .key{
         padding: 1rem 1.2rem;
@@ -67,7 +94,9 @@
     }
     .keyboard{
         padding: 0.5rem 0 0;
+        height: 17rem;
     }
+    
 }
 @media screen and (max-width: 470px) {
     .key{
@@ -75,12 +104,10 @@
         font-size: 1.2rem;
     }
     .space{
-        width: 15rem;
+        width: 17rem;
     }
     .funKeys{
         padding: 0.7rem 0.5rem;
     }
-    .keyboard{
-        height: 17rem;
-    }
+    
 }

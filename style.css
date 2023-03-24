@@ -37,7 +37,7 @@ body{
     border-color: transparent;
     color: var(--color-variant);
     cursor: pointer;
-    padding: 0.5rem 1rem;
+    padding: 0.7rem 1rem;
     transition: var(--transition);
 }
 #input:hover{
